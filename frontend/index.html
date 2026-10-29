@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>対義文ジェネレーター</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1>対義文ジェネレーター</h1>
+      <p class="lead">文を入れると、語ごとに対義語へ置き換えた「反対の文」を返します。正しさより面白さ優先です。</p>
+    </header>
+
+    <form id="form">
+      <label for="text" class="label">文</label>
+      <textarea id="text" rows="3" maxlength="200" placeholder="今日は天気がよいので、明るい気持ちで走った。">今日は天気がよいので、明るい気持ちで走った。</textarea>
+      <div class="counter"><span id="count">0</span> / 200</div>
+
+      <fieldset class="modes">
+        <legend class="label">モード</legend>
+        <label><input type="radio" name="mode" value="dict"> 辞書 <small>辞書だけ。安定</small></label>
+        <label><input type="radio" name="mode" value="vector"> ベクトル <small>失敗を観察して遊ぶ</small></label>
+        <label><input type="radio" name="mode" value="mix" checked> ミックス <small>既定。一番それらしい</small></label>
+      </fieldset>
+
+      <div class="actions">
+        <button type="submit" id="go">反対にする</button>
+        <button type="button" id="again" disabled>もう一回</button>
+        <span id="seed" class="seed"></span>
+      </div>
+    </form>
+
+    <p id="status" class="status" role="status"></p>
+
+    <section id="output" hidden>
+      <h2>結果</h2>
+      <p id="result" class="result"></p>
+      <p class="legend">
+        <span class="chip m-csv">辞書</span>
+        <span class="chip m-wordnet">WordNet</span>
+        <span class="chip m-vector">ベクトル</span>
+        <span class="chip m-negate">否定化</span>
+        <span class="hint">語にカーソルを合わせると元の語・方式・スコアが出ます</span>
+      </p>
+
+      <h2>トレース</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>原語</th><th>原形</th><th>品詞</th><th>置換語</th><th>方式</th><th>スコア</th></tr></thead>
+          <tbody id="trace"></tbody>
+        </table>
+      </div>
+      <p><a id="share" href="#">この結果へのリンク</a></p>
+    </section>
+
+    <footer id="health" class="health"></footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

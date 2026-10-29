@@ -1,0 +1,7 @@
+fastapi>=0.110
+uvicorn[standard]>=0.29
+sudachipy>=0.6.8
+sudachidict_core>=20240109
+# ベクトルモード（chiVe）を使うとき
+gensim>=4.3
+numpy>=1.26
