@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+# 大きいデータはgit管理しない
+backend/data/*.db
+backend/data/*.kv
+backend/data/*.npy
+backend/data/*.bin
+backend/data/*.txt
